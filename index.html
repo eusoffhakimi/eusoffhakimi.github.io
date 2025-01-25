@@ -50,6 +50,20 @@
         .button:active {
             transform: scale(0.98);
         }
+
+        #music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            width: 20px;
+            outline: none;
+        }
     </style>
 </head>
 <body>
@@ -58,7 +72,7 @@
     <div id="time-display" style="color: black;">00:00:00</div>
     <button id="start-stop-btn" class="button start-stop">Start</button>
     <button id="reset-btn" class="button reset">Reset</button>
-    <audio autoplay loop>
+    <audio id="music-player" controls autoplay loop>
         <source src="music.mp3" type="audio/mpeg">
     </audio>
 
