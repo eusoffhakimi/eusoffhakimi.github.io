@@ -445,7 +445,7 @@
       text-transform: uppercase;
     }
     .bismillah { margin: 0 0 24px; color: #7b725f; font-size: 1.05rem; }
-    h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
+    h1, h2, h3 { font-weight: 300; }
     .hero h1 {
       margin: 0;
       color: var(--blue-deep);
@@ -454,7 +454,8 @@
     }
     .ampersand { display: block; margin: 8px 0; color: var(--gold); font-size: .55em; font-style: italic; }
     .couple-hashtag { margin: 18px 0 0; color: var(--gold); font-size: .83rem; letter-spacing: .16em; }
-    .hero-date { margin: 27px 0 0; color: var(--muted); letter-spacing: .12em; }
+    .hero-date { display: grid; gap: 1px; margin: 27px 0 0; color: var(--muted); letter-spacing: .12em; line-height: 1.3; }
+    .hero-date span { display: block; }
     .hero-invite {
       max-width: 540px;
       margin: 30px auto 0;
@@ -500,25 +501,32 @@
     .page.has-reveal .section.is-in-view { opacity: 1; transform: translateY(0); }
     .section-heading { margin-bottom: 34px; text-align: center; }
     .section-heading .eyebrow { margin-bottom: 11px; }
-    .section-heading h2 { margin: 0; color: var(--blue-deep); font-size: clamp(2rem, 5vw, 3rem); }
+    .section-heading h2 { margin: 0; color: var(--blue-deep); font-size: clamp(1.8125rem, calc(5vw - 3px), 2.8125rem); }
     .section-heading p { margin: 12px auto 0; color: var(--muted); line-height: 1.8; }
     .ornament { width: 52px; height: 1px; margin: 20px auto 0; background: var(--gold); }
     .family-grid {
       display: grid;
-      grid-template-columns: minmax(0, 540px);
+      grid-template-columns: minmax(0, 600px);
       justify-content: center;
       text-align: center;
-      margin: 0 auto 34px;
+      margin: 0 auto 8px;
     }
-    .family-card { padding: 25px 16px; border: 1px solid var(--line); }
-    .family-card h3 { margin: 0 0 14px; color: var(--gold); font-size: 1.35rem; }
-    .family-card p { margin: 5px 0; color: #536876; line-height: 1.75; }
     .family-card #brideParents { color: var(--blue-deep); font-family: var(--script); font-size: clamp(1.55rem, 2.9vw, 1.9rem); line-height: 1.35; }
     .couple-names { margin: 0 0 31px; color: var(--blue-deep); font-family: var(--script); font-size: clamp(1.65rem, 3.8vw, 2.2rem); text-align: center; }
-    .event-details { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+    .event-details { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
     .detail { min-height: 125px; padding: 20px 12px; border: 1px solid var(--line); background: rgba(255,255,255,.42); text-align: center; }
     .detail-label { display: block; margin-bottom: 9px; color: var(--gold); font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; }
     .detail p { margin: 0; color: #4e6573; line-height: 1.7; }
+    .event-date { display: grid; justify-items: center; gap: 1px; line-height: 1.35 !important; }
+    .theme-display { display: grid; justify-items: center; gap: 9px; color: #4e6573; }
+    .theme-word { font-weight: 600; }
+    .theme-swatches { display: flex; justify-content: center; gap: 10px; }
+    .theme-swatch { width: 30px; height: 30px; border: 1px solid rgba(73,63,80,.16); border-radius: 50%; box-shadow: inset 0 0 0 2px rgba(255,255,255,.25); }
+    .theme-yellow { background: #f0df9e; }
+    .theme-blue { background: #b9d1df; }
+    .theme-orange { background: #e8b99d; }
+    .theme-brown { background: #c8b19e; }
+    .theme-note { max-width: 430px; color: var(--muted); font-size: .78rem; line-height: 1; }
     .countdown {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -573,6 +581,7 @@
 
     .footer { padding: 30px 20px 45px; color: #607582; font-family: var(--serif); text-align: center; }
     .footer strong { display: block; margin-bottom: 9px; color: var(--blue-deep); font-size: 1.3rem; font-weight: 400; }
+    .footer-poem { margin: 0; line-height: 1.8; }
     .verse-card { max-width: 740px; margin: 0 auto 28px; padding: 26px; border: 1px solid var(--line); text-align: center; }
     .verse-card:last-of-type { margin-bottom: 0; }
     .verse-arabic { margin: 0 0 17px; color: var(--blue-deep); font-family: "Times New Roman", serif; font-size: clamp(1.5rem, 4vw, 2rem); line-height: 1.9; }
@@ -618,7 +627,7 @@
       .section { width: calc(100% - 24px); margin-bottom: 20px; padding: 42px 21px; }
       .section-florals img { width: 96px; opacity: .58; }
       .family-grid { grid-template-columns: 1fr; gap: 12px; }
-      .event-details { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .event-details { grid-template-columns: minmax(0, 1fr); gap: 10px; }
       .family-card { padding: 20px 12px; }
       .detail { padding: 13px 10px; }
       .detail { min-height: 110px; }
@@ -752,7 +761,7 @@
 
     <header class="hero" id="utama">
       <div class="hero-card">
-        <div class="hero-crest" aria-hidden="true">
+        <div class="hero-crest" aria-hidden="true" hidden="true">
           <svg viewBox="0 0 116 54">
             <path d="M8 37c12-1 20-7 26-17 4 11 11 17 23 18M108 37c-12-1-20-7-26-17-4 11-11 17-23 18M18 42c14 1 23-2 32-9m48 9c-14 1-23-2-32-9M30 25c-5-7-10-8-15-7 2 6 7 9 14 9m57-2c5-7 10-8 15-7-2 6-7 9-14 9"/>
             <path class="crest-petal" d="M58 9c-6 5-6 11 0 15 6-4 6-10 0-15Z"/>
@@ -763,41 +772,35 @@
           </svg>
         </div>
         <p class="eyebrow">Akad Cinta Dua Jiwa</p>
-        <p class="hero-motto">Tertulis indah oleh takdir,<br>Disatukan atas izin-Nya.</p>
         <div class="hero-rule" aria-hidden="true"><span>✦</span></div>
-        <p class="eyebrow" style="margin-top:20px">Jemputan penuh kesyukuran</p>
+        <!-- <p class="eyebrow" style="margin-top:20px">Jemputan penuh kesyukuran</p> -->
         <h1>
           <span id="brideName">Nama Pengantin </span>
           <span class="ampersand">&amp;</span>
           <span id="groomName">Nama Pengantin Lelaki</span>
         </h1>
-        <p class="couple-hashtag">#EusoffFoundNabilah</p>
-        <p class="hero-date" id="heroDate">AHAD · 20 DISEMBER 2026</p>
+        <p class="hero-date" id="heroDate"><span class="date-day">AHAD</span><span class="date-calendar">20 DISEMBER 2026</span></p>
         <div class="hero-rule" aria-hidden="true"><span>❧</span></div>
+        <p class="hero-motto">Tertulis indah oleh takdir,<br>Disatukan atas izin-Nya.</p>
         <a class="scroll-cue" href="#keluarga" aria-label="Lihat butiran jemputan">
           ↓ <span>LIHAT JEMPUTAN</span>
         </a>
+        <p class="couple-hashtag">#EusoffFoundNabilah</p>
       </div>
     </header>
 
     <section class="section" id="keluarga">
-      <div class="section-heading">
-        <p class="eyebrow">Jemputan daripada</p>
-        <h2>Dengan restu keluarga</h2>
-        <div class="ornament"></div>
-      </div>
       <div class="couple-intro">
-        <img class="bismillah-image" src="Pics/Bismillah_ClearBackground.png" alt="Bismillahirrahmanirrahim">
+        <img class="bismillah-image" src="Pics/Bismillah_Malay_ClearBackground.png" alt="Bismillahirrahmanirrahim">
+        <div class="family-grid">
+          <article class="family-card">
+            <p id="brideParents">Nama Bapa &amp; Nama Ibu</p>
+          </article>
+        </div>
         <p class="hero-invite">Dengan penuh rasa kesyukuran,</p>
-        <p class="hero-invite">kami menjemput</p>
+        <p class="hero-invite">kami ingin menjemput</p>
         <p class="hero-invite">Dato | Datin | Tuan | Puan | Encik | Cik</p>
         <p class="hero-invite">ke majlis perkahwinan puteri kami. Kehadiran serta doa restu anda amat kami hargai.</p>
-      </div>
-      <div class="family-grid">
-        <article class="family-card">
-          <h3>Keluarga pihak perempuan</h3>
-          <p id="brideParents">Nama Bapa &amp; Nama Ibu</p>
-        </article>
       </div>
       <div class="couple-profiles">
         <article class="couple-profile">
@@ -811,7 +814,7 @@
         <article class="couple-profile">
           <img class="profile-photo" src="Pics/Eusoff_Budak_2.png" alt="Eusoff bersama Nabilah menghadap langit">
           <div class="profile-caption">
-            <span>Pasangan pilihan</span>
+            <span>Pasangan pilihan hatinya</span>
             <h3 id="groomFullName">Muhammad Eusoff Hakimi Bin Asmadi</h3>
             <p>Melangkah bersama membina kehidupan.</p>
           </div>
@@ -829,7 +832,7 @@
       <div class="event-details">
         <div class="detail">
           <span class="detail-label">Tarikh</span>
-          <p id="eventDateText">Ahad, 20 Disember 2026</p>
+          <p class="event-date" id="eventDateText"><span class="date-day">Ahad</span><span class="date-calendar">20 Disember 2026</span></p>
         </div>
         <div class="detail">
           <span class="detail-label">Masa</span>
@@ -841,7 +844,17 @@
         </div>
         <div class="detail">
           <span class="detail-label">Tema Pakaian</span>
-          <p id="eventTheme">Pakaian formal</p>
+          <div class="theme-display" id="eventTheme">
+            <span class="theme-word">Pastel</span>
+            <div class="theme-swatches" aria-label="Contoh warna tema">
+              <span class="theme-swatch theme-yellow" role="img" aria-label="Kuning lembut"></span>
+              <span class="theme-swatch theme-blue" role="img" aria-label="Biru lembut"></span>
+              <span class="theme-swatch theme-orange" role="img" aria-label="Oren lembut"></span>
+              <span class="theme-swatch theme-brown" role="img" aria-label="Coklat lembut"></span>
+            </div>
+            <small class="theme-note">Mohon disantuni warna-warni yang lembut berseri,</small>
+            <small class="theme-note">Putih dikhususkan buat raja sehari.</small>
+          </div>
         </div>
       </div>
       <div class="agenda">
@@ -928,7 +941,8 @@
       <div class="section-heading">
         <p class="eyebrow">Mohon maklumkan kehadiran</p>
         <h2>Pengesahan kehadiran</h2>
-        <p>Sila sahkan kehadiran melalui borang Google sebelum <span id="rsvpDeadline">10 Disember 2026</span>.</p>
+        <p>Kehadiran para tetamu amat dihargai. Sila lengkapkan RSVP bagi tujuan pengesahan kehadiran sebelum<span id="rsvpDeadline">10 Disember 2026</span>.</p>
+        <p>Mohon kerjasama untuk tidak berkongsi atau menyebarkan jemputan dan pautan RSVP ini kepada pihak lain tanpa kebenaran daripada pihak keluarga pengantin.</p>
         <div class="ornament"></div>
       </div>
       <div style="text-align:center">
@@ -939,7 +953,10 @@
 
     <footer class="footer">
       <strong id="footerNames">Nama Pengantin Perempuan &amp; Nama Pengantin Lelaki</strong>
-      Dengan penuh kasih dan kesyukuran, kami menantikan kehadiran anda.
+      <p class="footer-poem">Indah berseri bunga di taman,<br>
+      Harum melati di hujung dahan;<br>
+      Nabilah dan Eusoff menyulam impian,<br>
+      Sudilah tuan puan meraikan ikatan.</p>
     </footer>
     <div class="quick-actions" aria-label="Maklumat tambahan">
       <button class="action-button" type="button" data-dialog="contact">
@@ -974,11 +991,11 @@
       brideFullName: "Nor Nabilah Binti Mohd Zazali",
       brideParents: "Mohd Zazali Bin Ya'acob & Ida Binti Sabiron",
       eventDate: "2027-03-27T11:00:00+08:00",
-      dateText: "Sabtu, 27 Mac 2027",
-      time: "5.00 petang – 11.00 malam",
+      dateText: "Sabtu, 27/3/2027",
+      time: "8.00 malam – 11.00 malam",
       venue: "Malayan Uphills<br>21, Jalan Waspada, Straits View, 80100 Johor Bahru, Johor",
       rsvpDeadline: "10 Disember 2026",
-      theme: "Pakaian Pastels",
+      theme: "Pastel",
       googleFormUrl: "",
       contacts: [
         { name: "Mohd Zazali Ya'acob", role: "Keluarga pengantin perempuan", whatsapp: "" },
@@ -986,10 +1003,11 @@
       ],
       giftQrImage: "",
       agenda: [
-        { time: "5.00 petang", activity: "Ketibaan tetamu" },
-        { time: "7.00 petang", activity: "Ketibaan pengantin" },
-        { time: "8.00 petang", activity: "Jamuan dan sesi bergambar" },
-        { time: "11.00 malam", activity: "Majlis bersurai" }
+        { time: "8.00 malam", activity: "Ketibaan Tetamu" },
+        { time: "9.00 malam", activity: "Ketibaan Pengantin" },
+        { time: "9.30 malam", activity: "Sesi Fotografi" },
+        { time: "10.30 malam", activity: "Acara Bunga Api" },
+        { time: "11.30 malam", activity: "Majlis Bersurai" }
       ],
       musicFile: "lagu2.mp3"
     };
@@ -1001,13 +1019,16 @@
     document.getElementById("brideParents").textContent = invitation.brideParents;
     document.getElementById("detailGroom").textContent = invitation.groom;
     document.getElementById("detailBride").textContent = invitation.bride;
-    document.getElementById("eventDateText").textContent = invitation.dateText;
+    const [eventDay, ...eventDateParts] = invitation.dateText.split(",");
+    document.querySelector("#eventDateText .date-day").textContent = eventDay.trim();
+    document.querySelector("#eventDateText .date-calendar").textContent = eventDateParts.join(",").trim();
     document.getElementById("eventTime").textContent = invitation.time;
     document.getElementById("eventVenue").innerHTML = invitation.venue;
-    document.getElementById("eventTheme").textContent = invitation.theme;
+    document.querySelector("#eventTheme .theme-word").textContent = invitation.theme;
     document.getElementById("rsvpDeadline").textContent = invitation.rsvpDeadline;
     document.getElementById("footerNames").textContent = invitation.bride + " & " + invitation.groom;
-    document.getElementById("heroDate").textContent = invitation.dateText.toLocaleUpperCase("ms-MY");
+    document.querySelector("#heroDate .date-day").textContent = eventDay.trim().toLocaleUpperCase("ms-MY");
+    document.querySelector("#heroDate .date-calendar").textContent = eventDateParts.join(",").trim().toLocaleUpperCase("ms-MY");
     const agendaList = document.getElementById("agendaList");
     invitation.agenda.forEach((item) => {
       const row = document.createElement("li");
