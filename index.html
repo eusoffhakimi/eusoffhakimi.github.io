@@ -511,7 +511,8 @@
       text-align: center;
       margin: 0 auto 8px;
     }
-    .family-card #brideParents { color: var(--blue-deep); font-family: var(--script); font-size: clamp(1.55rem, 2.9vw, 1.9rem); line-height: 1.35; }
+    .family-card #brideParents { display: grid; justify-items: center; gap: 1px; margin: 0; color: var(--blue-deep); font-family: var(--script); font-size: clamp(1.55rem, 2.9vw, 1.9rem); line-height: 1.25; }
+    .family-card #brideParents .parent-connector { color: var(--gold); font-family: var(--serif); font-size: .78em; line-height: 1; }
     .couple-names { margin: 0 0 31px; color: var(--blue-deep); font-family: var(--script); font-size: clamp(1.65rem, 3.8vw, 2.2rem); text-align: center; }
     .event-details { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
     .detail { min-height: 125px; padding: 20px 12px; border: 1px solid var(--line); background: rgba(255,255,255,.42); text-align: center; }
@@ -794,7 +795,7 @@
         <img class="bismillah-image" src="Pics/Bismillah_Malay_ClearBackground.png" alt="Bismillahirrahmanirrahim">
         <div class="family-grid">
           <article class="family-card">
-            <p id="brideParents">Nama Bapa &amp; Nama Ibu</p>
+            <p id="brideParents"><span class="parent-father">Nama Bapa</span><span class="parent-connector" aria-hidden="true">&amp;</span><span class="parent-mother">Nama Ibu</span></p>
           </article>
         </div>
         <p class="hero-invite">Dengan penuh rasa kesyukuran,</p>
@@ -989,7 +990,7 @@
       bride: "Nabilah",
       groomFullName: "Muhammad Eusoff Hakimi Bin Asmadi",
       brideFullName: "Nor Nabilah Binti Mohd Zazali",
-      brideParents: "Mohd Zazali Bin Ya'acob & Ida Binti Sabiron",
+      brideParents: "Mohd Zazali Bin Ya'acob & Noorlida Binti Mohamad Sabiron",
       eventDate: "2027-03-27T11:00:00+08:00",
       dateText: "Sabtu, 27/3/2027",
       time: "8.00 malam – 11.00 malam",
@@ -999,7 +1000,7 @@
       googleFormUrl: "",
       contacts: [
         { name: "Mohd Zazali Ya'acob", role: "Keluarga pengantin perempuan", whatsapp: "" },
-        { name: "Ida Sabiron", role: "Keluarga pengantin perempuan", whatsapp: "" }
+        { name: "Noorlida MohamadSabiron", role: "Keluarga pengantin perempuan", whatsapp: "" }
       ],
       giftQrImage: "",
       agenda: [
@@ -1009,14 +1010,16 @@
         { time: "10.30 malam", activity: "Acara Bunga Api" },
         { time: "11.30 malam", activity: "Majlis Bersurai" }
       ],
-      musicFile: "lagu2.mp3"
+      musicFile: "lagu3.mp3"
     };
 
     document.getElementById("groomName").textContent = invitation.groom;
     document.getElementById("brideName").textContent = invitation.bride;
     document.getElementById("groomFullName").textContent = invitation.groomFullName;
     document.getElementById("brideFullName").textContent = invitation.brideFullName;
-    document.getElementById("brideParents").textContent = invitation.brideParents;
+    const [brideFather, brideMother] = invitation.brideParents.split(" & ");
+    document.querySelector("#brideParents .parent-father").textContent = brideFather;
+    document.querySelector("#brideParents .parent-mother").textContent = brideMother || "";
     document.getElementById("detailGroom").textContent = invitation.groom;
     document.getElementById("detailBride").textContent = invitation.bride;
     const [eventDay, ...eventDateParts] = invitation.dateText.split(",");
